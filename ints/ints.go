@@ -1,6 +1,7 @@
 package ints
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
 )
@@ -59,4 +60,23 @@ func Reverse(s []int) {
 		i++
 		j--
 	}
+}
+
+func In(s []int, test int) bool {
+	for _, v := range s {
+		if test == v {
+			return true
+		}
+	}
+	return false
+}
+
+func AllIn(s []int, test []int) bool {
+	for _, v := range test {
+		fmt.Println(In(s, v))
+		if !In(s, v) {
+			return false
+		}
+	}
+	return true
 }

@@ -26,7 +26,7 @@ import (
 )
 
 func main() {
-	model := relief.NewRelief([][]float64{
+    model := relief.NewRelief([][]float64{
         []float64{0, 0},
         []float64{0, 1},
         []float64{1, 0},
@@ -57,21 +57,21 @@ import (
 )
 
 func main() {
-	model := relief.NewReliefF([][]float64{
-    		[]float64{0, 0, -1},
-    		[]float64{0, 0, -2},
-    		[]float64{0, 0, -3},
-    		[]float64{0, 0, -4},
-    		[]float64{1, 1, 1},
-    		[]float64{1, 1, 2},
-    		[]float64{1, 1, 3},
-    		[]float64{1, 1, 4},
-    	}, []float64{0, 0, 0, 0, 1, 1, 1, 1}, []int{
-    		relief.AttributeTypeDiscrete,
-    		relief.AttributeTypeDiscrete,
-    		relief.AttributeTypeDiscrete,
-    	}, 2)
-    	fmt.Println(model.Run(100))
+    model := relief.NewReliefF([][]float64{
+        []float64{0, 0, -1},
+        []float64{0, 0, -2},
+        []float64{0, 0, -3},
+        []float64{0, 0, -4},
+        []float64{1, 1, 1},
+        []float64{1, 1, 2},
+        []float64{1, 1, 3},
+        []float64{1, 1, 4},
+    }, []float64{0, 0, 0, 0, 1, 1, 1, 1}, []int{
+        relief.AttributeTypeDiscrete,
+        relief.AttributeTypeDiscrete,
+        relief.AttributeTypeDiscrete,
+    }, 2)
+    fmt.Println(model.Run(100))
 }
 ```
 

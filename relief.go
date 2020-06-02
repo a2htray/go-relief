@@ -1,10 +1,12 @@
 package relief
 
 import (
+	"fmt"
 	"github.com/a2htray/relief/floats"
 	"github.com/a2htray/relief/ints"
 	"math"
 	"math/rand"
+	"strings"
 )
 
 const (
@@ -32,7 +34,6 @@ type Relief struct {
 	AttributeTypes []int
 	// 保存每一维的最小值与最大值
 	minMaxes     []floats.MinMax
-	featureCount int
 }
 
 func (r *Relief) Count() int {
@@ -54,6 +55,10 @@ func NewRelief(values [][]float64, targets []float64, attributeTypes []int) *Rel
 		panic("the numbers of features and attribute types do not match")
 	}
 
+	if !ints.AllIn([]int{AttributeTypeDiscrete, AttributeTypeContinuous}, attributeTypes) {
+		panic(fmt.Sprintf("attribute types must in array [%s]", strings.Join([]string{"0", "1"}, ",")))
+	}
+
 	// 保存每一维的最大值与最小值
 	minMaxes := make([]floats.MinMax, 0)
 	for j := 0; j < len(attributeTypes); j++ {
@@ -69,7 +74,6 @@ func NewRelief(values [][]float64, targets []float64, attributeTypes []int) *Rel
 		Targets:        targets,
 		AttributeTypes: attributeTypes,
 		minMaxes:       minMaxes,
-		featureCount:   len(attributeTypes),
 	}
 }
 
