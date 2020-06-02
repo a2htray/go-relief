@@ -33,7 +33,7 @@ func Filter(s []int, filter func(v int) bool) []int {
 
 // Iter(10) => [0,1,2,3,4,5,6,7,8,9]
 func Iter(n int) []int {
-	return Range(0, n - 1, 1)
+	return Range(0, n-1, 1)
 }
 
 // Python range 的 go 实现
@@ -53,7 +53,7 @@ func Range(start, end, step int) []int {
 func Reverse(s []int) {
 	length := len(s)
 	i := 0;
-	j := length-1
+	j := length - 1
 	for ; i <= j; {
 		s[i], s[j] = s[j], s[i]
 		i++

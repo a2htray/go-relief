@@ -27,8 +27,8 @@ func NewMatrix(data [][]float64) *Matrix {
 	n := len(data[0])
 	return &Matrix{
 		Data: data,
-		M: m,
-		N: n,
+		M:    m,
+		N:    n,
 	}
 }
 
@@ -92,7 +92,7 @@ func (m MinMax) SetMax(max float64) {
 
 type sliceWithIndex struct {
 	index int
-	data []float64
+	data  []float64
 }
 
 // 计算欧式距离
@@ -159,7 +159,7 @@ func ArgSort(matrix [][]float64, sort func([]float64) float64, descent bool) []i
 	s := make([]sliceWithIndex, 0)
 	for i, row := range matrix {
 		s = append(s, sliceWithIndex{
-			data: row,
+			data:  row,
 			index: i,
 		})
 	}
@@ -168,8 +168,8 @@ func ArgSort(matrix [][]float64, sort func([]float64) float64, descent bool) []i
 
 	for i := 0; i < length; i++ {
 		metric := sort(s[i].data)
-		for j := i+1; j < length; j++ {
-			newMetric :=  sort(s[j].data)
+		for j := i + 1; j < length; j++ {
+			newMetric := sort(s[j].data)
 			if newMetric < metric {
 				s[i], s[j] = s[j], s[i]
 				metric = newMetric
